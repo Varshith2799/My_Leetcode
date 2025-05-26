@@ -1,0 +1,2 @@
+SELECT ROUND(AVG(CASE WHEN SQ.od = SQ.cpdd THEN 1 ELSE 0 END)*100,2) AS immediate_percentage
+FROM (SELECT customer_id , MIN(order_date) AS od, MIN(customer_pref_delivery_date) AS cpdd FROM Delivery GROUP BY customer_id) AS SQ;
